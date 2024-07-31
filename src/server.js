@@ -3,7 +3,6 @@ const usersController = require("./controller/users.controller");
 const commentsController = require("./controller/comments.controller");
 
 const knex = require("./knex");
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
