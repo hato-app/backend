@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import notesController from "./controller/notes.controller";
+import cardsController from "./controller/cards.controller";
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/card", (req, res) =>
-  notesController("show_back", req, res)
+  cardsController("show", req, res)
 );
 
 
