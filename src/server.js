@@ -1,5 +1,4 @@
-import { Request, Response } from "express";
-import notesController from "./controller/notes.controller";
+const knex = require("./knex");
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -15,10 +14,7 @@ app.get("/", (req, res) => {
   res.json("I'm Alive");
 });
 
-app.get("/card", (req, res) =>
-  notesController("show_back", req, res)
-);
-
+app.get("/card", (req, res) => notesController("show_back", req, res));
 
 app.listen(process.env.PORT, () =>
   console.log(`Server is running on port: ${process.env.PORT}`)
