@@ -6,8 +6,46 @@ exports.seed = async function(knex) {
   // Deletes ALL existing entries
   await knex('table_name').del()
   await knex('table_name').insert([
-    {id: 1, colName: 'rowValue1'},
-    {id: 2, colName: 'rowValue2'},
-    {id: 3, colName: 'rowValue3'}
+    {
+      user_id: "1",
+      card_id: "1",
+    },
+    {
+      user_id: "2",
+      card_id: "1",
+    },
+    {
+      user_id: "3",
+      card_id: "1",
+    },
+    {
+      user_id: "4",
+      card_id: "3",
+    },
+    {
+      user_id: "5",
+      card_id: "4",
+    },
+    {
+      user_id: "6",
+      card_id: "8",
+    },
+    {
+      user_id: "7",
+      card_id: "8",
+    },
+    {
+      user_id: "8",
+      card_id: "7",
+    },
+    {
+      user_id: "9",
+      card_id: "9",
+    },
+    {
+      user_id: "10",
+      card_id: "1",
+    },
+
   ]);
 };
