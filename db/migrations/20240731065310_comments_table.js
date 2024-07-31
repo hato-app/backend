@@ -3,12 +3,13 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-  return knex.schema.createTable('users', function (table) {
+  return knex.schema.createTable('comments', function(table) {
     table.increments();
-    table.string('username', 25).unique().notNullable();
-    table.string('password').notNullable();
+    table.foreign('card_id').references('id').inTable('cards');
+    table.string('text');
+    table.foreign('user_id').references('id').inTable('users');
     table.timestamps(true, true);
-  });
+  })
 };
 
 /**
@@ -16,5 +17,5 @@ exports.up = function(knex) {
  * @returns { Promise<void> }
  */
 exports.down = function(knex) {
-  return knex.schema.dropTable('users');
+  return knex.schema.dropTable('comments');
 };
