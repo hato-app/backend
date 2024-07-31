@@ -4,10 +4,68 @@
  */
 exports.seed = async function(knex) {
   // Deletes ALL existing entries
-  await knex('table_name').del()
-  await knex('table_name').insert([
-    {id: 1, colName: 'rowValue1'},
-    {id: 2, colName: 'rowValue2'},
-    {id: 3, colName: 'rowValue3'}
+  await knex('comments').del()
+  await knex('comments').insert([
+    {
+      id:'1',
+      card_id: '1',
+      text: 'wow, this sucks',
+      user_id: '1',
+    },
+    {
+      id:'2',
+      card_id: '1',
+      text: 'no, this is great!',
+      user_id: '2',
+    },
+    {
+      id:'3',
+      card_id: '1',
+      text: 'stop fighting!!',
+      user_id: '3',
+    },
+    {
+      id:'4',
+      card_id: '1',
+      text: 'nah, this is so bad...',
+      user_id: '1',
+    },
+    {
+      id:'5',
+      card_id: '3',
+      text: 'hahaha!',
+      user_id: '7',
+    },
+    {
+      id:'6',
+      card_id: '3',
+      text: 'shut up bro',
+      user_id: '6',
+    },
+    {
+      id:'7',
+      card_id: '9',
+      text: 'eyyo can anyone add me on discord?',
+      user_id: '5',
+    },
+    {
+      id:'8',
+      card_id: '9',
+      text: 'why are you adding ppl here??',
+      user_id: '4',
+    },
+    {
+      id:'9',
+      card_id: '7',
+      text: 'gustavo is so cool!',
+      user_id: '10',
+    },
+    {
+      id:'10',
+      card_id: '7',
+      text: 'wow the people who made this app must be cracked!',
+      user_id: '8',
+    }
+
   ]);
 };
