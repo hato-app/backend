@@ -1,5 +1,7 @@
 require("dotenv").config({ path: "./.env.local" });
 
+console.log(process.env.PORT)
+
 const DB_USER = process.env.DB_USER;
 const DB_NAME = process.env.DB_NAME;
 const DB_HOST = "127.0.0.1";
