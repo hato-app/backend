@@ -2,21 +2,20 @@ const knex = require("../knex");
 
 const commentsModel = {
   select: async () => {
-    return knex("comment").select("*");
+    return knex("comments").select("*");
   },
   selectId: async (id) => {
-    return knex("comment").select("*").where({ id }).first();
+    return knex("comments").select("*").where({ id }).first();
   },
-  create: async (card) => {
-    return knex("comment").insert(id, text, created_at, diabled).returning("*");
-    // how to add user_id, created_at, disabled?
+  create: async (comment) => {
+    return knex("comments").insert(comment).returning("*");
   },
   update: async (id, comment) => {
-    return knex("comment").update(id, text, diabled).where({ id });
+    return knex("comments").update(comment).where({ id });
   },
 
   destroy: async (id) => {
-    return knex("comment").del().where({ id });
+    return knex("comments").del().where({ id } );
   },
 };
 module.exports = commentsModel;
