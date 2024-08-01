@@ -2,6 +2,8 @@ const cardsController = require("./controller/cards.controller");
 const usersController = require("./controller/users.controller");
 const commentsController = require("./controller/comments.controller");
 const sessionsController = require("./controller/sessions.controller");
+const likesController = require("./controller/likes.controller");
+const dislikesController = require("./controller/dislikes.controller");
 
 const session = require("express-session");
 const express = require("express");
@@ -46,6 +48,16 @@ app.get("/comments/:id", commentsController.show);
 app.post("/comments", commentsController.create);
 app.patch("/comments/:id", commentsController.update);
 app.delete("/comments/:id", commentsController.destroy);
+
+app.get("/likes", likesController.index);
+app.get("/likes/cards/:id", likesController.showByCardId);
+app.post("/likes", likesController.create);
+app.delete("/likes/cards/:id", likesController.destroyByCardId);
+
+app.get("/dislikes", dislikesController.index);
+app.get("/dislikes/cards/:id", dislikesController.showByCardId);
+app.post("/dislikes", dislikesController.create);
+app.delete("/dislikes/cards/:id", dislikesController.destroyByCardId);
 
 app.listen(process.env.PORT, () =>
   console.log(`Server is running on port: ${process.env.PORT}`)
