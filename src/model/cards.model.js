@@ -7,6 +7,9 @@ const cardsModel = {
   selectId: async (id) => {
     return knex("cards").select("*").where({ id }).first();
   },
+  selectRandom: async () => {
+    return knex("cards").select(RAND()).first();
+  },
   create: async (card) => {
     return knex("cards").insert(card).returning("*");
   },
@@ -15,6 +18,6 @@ const cardsModel = {
   },
   destroy: async (id) => {
     return knex("cards").del().where({ id });
-  },
+  }
 };
 module.exports = cardsModel;
