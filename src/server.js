@@ -20,8 +20,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/cards", cardsController.index);
-app.get("/cards/:id", cardsController.show);
 app.get("/cards/random", cardsController.showRandom);
+app.get("/cards/:id", cardsController.show);
 app.get("/cards/category/:id", cardsController.showByCategory);
 app.post("/cards", cardsController.create);
 app.patch("/cards/:id", cardsController.update);
