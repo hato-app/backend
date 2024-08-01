@@ -5,7 +5,7 @@ const usersModel = {
     return knex("users").select("*");
   },
   selectId: async (id) => {
-    return knex("users").select("*").where({ id });
+    return knex("users").select("*").where({ id }).first();
   },
   create: async (user) => {
     return knex("users").insert(user).returning("*");
