@@ -8,7 +8,7 @@ const commentsModel = {
     return knex("comment").select("*").where({ id }).first();
   },
   create: async (card) => {
-    return knex("comment").returning("*").insert(id, text, created_at, diabled);
+    return knex("comment").insert(id, text, created_at, diabled).returning("*");
     // how to add user_id, created_at, disabled?
   },
   update: async (id, comment) => {

@@ -8,7 +8,7 @@ const cardsModel = {
     return knex("card").select("*").where({ id }).first();
   },
   create: async (card) => {
-    return knex("card").returning("*").insert(id, user_id, category_id, created_date, front_text, back_text, views); 
+    return knex("card").insert(id, user_id, category_id, created_date, front_text, back_text, views).returning("*"); 
     //views 0 when it's created? where the category_id, user_id added from?
   },
   update: async (id, card) => {
