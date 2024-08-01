@@ -1,23 +1,34 @@
 const cardsController = require("./controller/cards.controller");
 const usersController = require("./controller/users.controller");
 const commentsController = require("./controller/comments.controller");
+const sessionsController = require("./controller/sessions.controller");
 const likesController = require("./controller/likes.controller");
 const dislikesController = require("./controller/dislikes.controller");
 
-const knex = require("./knex");
+const session = require("express-session");
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
 
+app.use(
+  session({
+    secret: "Riven is the best!",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
 app.use(bodyParser.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
   res.status(200);
-  res.json("Hato Api");
+  res.json("はと Api");
 });
+
+app.post("/sessions", sessionsController.create);
 
 app.get("/cards", cardsController.index);
 app.get("/cards/:id", cardsController.show);

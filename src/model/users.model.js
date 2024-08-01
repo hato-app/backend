@@ -11,7 +11,7 @@ const usersModel = {
     return knex("users").insert(user).returning("*");
   },
   update: async (id, user) => {
-    return knex("users").update(user).where({ id });
+    return knex("users").update(user).where({ id }).returning("*");
   },
   delete: async (id) => {
     return knex("users").del().where({ id });

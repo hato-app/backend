@@ -23,11 +23,19 @@ const usersController = {
   },
   update: async (req, res) => {
     const id = Number(req.params.id);
-    const user = {
-      username: req.body.username,
-      password: req.body.password,
-      updated_at: new Date().toISOString(),
-    };
+    const user = {};
+
+    if (req.body.username) {
+      user.username = req.body.username;
+    }
+    if (req.body.password) {
+      user.password = req.body.password;
+    }
+
+    if (Object.keys(user)) {
+      user.updated_at = new Date().toISOString();
+    }
+
     const results = await usersModel.update(id, user);
     res.status(200);
     res.json(results);
