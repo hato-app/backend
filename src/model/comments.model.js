@@ -14,7 +14,7 @@ const commentsModel = {
   update: async (id, comment) => {
     return knex("comment").update(id, text, diabled).where({ id });
   },
-  
+
   destroy: async (id) => {
     return knex("comment").del().where({ id });
   },

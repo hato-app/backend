@@ -13,7 +13,7 @@ const cardsModel = {
   update: async (id, card) => {
     return knex("cards").update(card).where({ id });
   },
-  
+
   destroy: async (id) => {
     return knex("cards").del().where({ id });
   },

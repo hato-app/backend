@@ -1,12 +1,15 @@
+const knex = require("../knex");
+
 const usersModel = {
   select: async () => {
-    return [];
+    return knex("users").select("*");
   },
   selectId: async (id) => {
     return {};
   },
   create: async (user) => {
-    return 0;
+    return knex("users").insert(user);
+
   },
   update: async (id, user) => {
     return 0;
