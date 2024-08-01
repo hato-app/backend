@@ -4,7 +4,6 @@
  */
 exports.seed = async function(knex) {
   // Deletes ALL existing entries
-  await knex('cards_dislikes').del()
   await knex('cards_dislikes').insert([
     {
       user_id: "1",

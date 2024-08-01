@@ -15,9 +15,9 @@ const cardsController = {
   create: async (req, res) => {
     const card = {
       front_text: req.body.front_text,
-      back_text: req.body.back_text,  
+      back_text: req.body.back_text,
       category_id: req.body.category_id,
-      user_id:req.body.user_id,
+      user_id: req.body.user_id,
     };
     const results = await cardsModel.create(card);
     res.status(200);
