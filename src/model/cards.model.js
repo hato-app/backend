@@ -4,11 +4,14 @@ const cardsModel = {
   select: async () => {
     return knex("cards").select("*");
   },
+  selectCategory: async (category_id) => {
+    return knex("cards").select("*").where({ category_id });
+  },
   selectId: async (id) => {
     return knex("cards").select("*").where({ id }).first();
   },
   create: async (card) => {
-    return knex("cards").insert(card).returning("*"); 
+    return knex("cards").insert(card).returning("*");
   },
   update: async (id, card) => {
     return knex("cards").update(card).where({ id });
