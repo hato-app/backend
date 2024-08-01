@@ -3,7 +3,7 @@ const knex = require("../knex");
 const cardsModel = {
   select: async () => {
     return knex("cards").select("*");
-  },
+    },
   selectId: async (id) => {
     return knex("cards").select("*").where({ id }).first();
   },

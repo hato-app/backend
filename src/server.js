@@ -1,6 +1,7 @@
 const cardsController = require("./controller/cards.controller");
 const usersController = require("./controller/users.controller");
 const commentsController = require("./controller/comments.controller");
+const likesController = require("./controller/likes.controller");
 
 const knex = require("./knex");
 const express = require("express");
@@ -34,6 +35,11 @@ app.get("/comments/:id", commentsController.show);
 app.post("/comments", commentsController.create);
 app.patch("/comments/:id", commentsController.update);
 app.delete("/comments/:id", commentsController.destroy);
+
+app.get("/likes/cards", likesController.index);
+// app.get("/likes/users", likesController.indexByUserId);
+// app.get("/likes/users/:id", likesController.showByUserId);
+// app.get("/likes/cards/:id", likesController.showByCardId);
 
 app.listen(process.env.PORT, () =>
   console.log(`Server is running on port: ${process.env.PORT}`)
