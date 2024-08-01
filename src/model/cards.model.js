@@ -2,23 +2,20 @@ const knex = require("../knex");
 
 const cardsModel = {
   select: async () => {
-    return knex("card").select("*");
+    return knex("cards").select("*");
   },
   selectId: async (id) => {
-    return knex("card").select("*").where({ id }).first();
+    return knex("cards").select("*").where({ id }).first();
   },
   create: async (card) => {
-    return knex("card").returning("*").insert(card);
-    //views 0 when it's created? where the category_id, user_id added from?
+    return knex("cards").insert(card).returning("*"); 
   },
   update: async (id, card) => {
-    return knex("card")
-      .update(id, user_id, category_id, front_text, back_text, views)
-      .where({ id });
+    return knex("cards").update(card).where({ id });
   },
 
   destroy: async (id) => {
-    return knex("card").del().where({ id });
+    return knex("cards").del().where({ id });
   },
 };
 module.exports = cardsModel;
