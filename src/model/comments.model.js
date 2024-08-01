@@ -19,4 +19,4 @@ const commentsModel = {
     return knex("comment").del().where({ id });
   },
 };
-export default commentsModel;
+module.exports = commentsModel;

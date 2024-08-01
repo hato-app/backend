@@ -40,4 +40,4 @@ const commentsController = {
   },
 };
 
-module.exports = cardsController;
+module.exports = commentsController;

@@ -13,12 +13,11 @@ const cardsController = {
     res.json(results);
   },
   create: async (req, res) => {
-    const id = Number(req.params.id);
     const card = {
       front_text: req.body.front_text,
       back_text: req.body.back_text,  
-      category_id: req.body.category_id, // how about category id?
-      created_date: new Date().toISOString(),
+      category_id: req.body.category_id,
+      user_id:req.body.user_id,
     };
     const results = await cardsModel.create(card);
     res.status(200);
