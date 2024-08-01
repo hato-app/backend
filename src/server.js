@@ -14,14 +14,14 @@ app.use(cors());
 
 app.get("/", (req, res) => {
   res.status(200);
-  res.json("Hato");
+  res.json("Hato Api");
 });
 
-app.get("/card", cardsController.index);
-app.get("/card/:id", cardsController.show);
-app.post("/card", cardsController.create);
-app.patch("/card/:id", cardsController.update);
-app.delete("/card/:id", cardsController.destroy);
+app.get("/cards", cardsController.index);
+app.get("/cards/:id", cardsController.show);
+app.post("/cards", cardsController.create);
+app.patch("/cards/:id", cardsController.update);
+app.delete("/cards/:id", cardsController.destroy);
 
 app.get("/users", usersController.index);
 app.get("/users/:id", usersController.show);
@@ -29,12 +29,11 @@ app.post("/users", usersController.create);
 app.patch("/users/:id", usersController.update);
 app.delete("/users/:id", usersController.destroy);
 
-app.get("/comment", commentsController.index);
-app.get("/comment/:id", commentsController.show);
-app.post("/comment", commentsController.create);
-app.patch("/comment/:id", commentsController.update);
-app.delete("/comment/:id", commentsController.destroy);
-
+app.get("/comments", commentsController.index);
+app.get("/comments/:id", commentsController.show);
+app.post("/comments", commentsController.create);
+app.patch("/comments/:id", commentsController.update);
+app.delete("/comments/:id", commentsController.destroy);
 
 app.listen(process.env.PORT, () =>
   console.log(`Server is running on port: ${process.env.PORT}`)
