@@ -5,17 +5,16 @@ const usersModel = {
     return knex("users").select("*");
   },
   selectId: async (id) => {
-    return {};
+    return knex("users").select("*").where({ id }).first();
   },
   create: async (user) => {
-    return knex("users").insert(user);
-
+    return knex("users").insert(user).returning("*");
   },
   update: async (id, user) => {
-    return 0;
+    return knex("users").update(user).where({ id });
   },
   delete: async (id) => {
-    return 0;
+    return knex("users").del().where({ id });
   },
 };
 
