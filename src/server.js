@@ -28,7 +28,9 @@ app.get("/", (req, res) => {
   res.json("はと Api");
 });
 
+app.get("/sessions", sessionsController.index);
 app.post("/sessions", sessionsController.create);
+app.delete("/sessions", sessionsController.destroy);
 
 app.get("/cards", cardsController.index);
 app.get("/cards/random", cardsController.showRandom);
