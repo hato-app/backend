@@ -23,7 +23,7 @@ const likesController = {
   },
   destroyByUserId: async (req, res) => {
     const id = Number(req.params.id);
-    const results = await likesModel.destroyByCardId(id);
+    const results = await likesModel.destroyByUserId(id);
     res.status(200);
     res.json(results);
   },
