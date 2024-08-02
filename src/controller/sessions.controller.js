@@ -4,7 +4,7 @@ const sessionsController = {
   index: async (req, res) => {
     if (req.session.user) {
       res.status(200);
-      res.json();
+      res.json(req.session.user);
     }
     res.status(401);
     res.json();
@@ -15,10 +15,10 @@ const sessionsController = {
       password: req.body.password,
     };
     const results = await sessionsModel.select(user);
-    if (results.length) {
-      req.session.user = true;
+    if (results) {
+      req.session.user = results;
       res.status(200);
-      res.json();
+      res.json(results);
     } else {
       res.status(401);
       res.json();
