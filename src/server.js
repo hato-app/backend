@@ -56,7 +56,7 @@ app.get("/comments", commentsController.index);
 app.get("/comments/:id", commentsController.show);
 //TODO put this route on README.md
 app.get("/comments/cards/:id", commentsController.showByCardId);
-app.post("/comments/:id", commentsController.create);
+app.post("/comments/", commentsController.create);
 app.patch("/comments/:id", commentsController.update);
 app.delete("/comments/:id", commentsController.destroy);
 

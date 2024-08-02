@@ -20,9 +20,8 @@ const commentsController = {
     res.json(results);
   },
   create: async (req, res) => {
-    const id = Number(req.params.id);
     const comment = {
-      card_id: id,
+      card_id: req.body.card_id,
       text: req.body.text,
       created_at: new Date().toISOString(),
     };
