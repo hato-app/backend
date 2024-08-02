@@ -41,6 +41,9 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo.
 
+Please replace anyting inside `<>` with your actual information.
+
+
 ## Usage <a name = "usage"></a>
 
 ### Routes and Responses
@@ -48,13 +51,42 @@ End with an example of getting some data out of the system or using it for a lit
 #### Sessions
 
 - **GET /sessions** - Returns status 200 if the user is logged in 401 if not.
+
 - **POST /sessions** - Requires a JSON:
 ```
-{ "username": "username", "password": "password" }
+{
+  "username": "`<your_username>`",
+  "password": "`<your_password>`"
+}
 ```
 Returns status 200 if correct and 401 if its not.
-- **DELETE /sessions** - Removes user sessions from the server.
+- **DELETE /sessions** - Removes user sessions from the server and returns status 200.
 
 #### Cards
+
+-  **GET /cards** - Shows all card and returns status 200.
+-  **GET /cards/random** - Shows one random card and returns 200.
+-  **GET /cards/random/category/:id** - Shows one random card from the selected category and returns 200.
+-  **GET /cards/:id** - Shows a card by the id and returns 200.
+-  **GET /cards/category/:id** - Shows all card by the category id and returns 200.
+-  **POST /cards**  - Requires a Json:
+```
+{ 
+    "front_text": "`<front_text>`", 
+    "back_text": "`<back_text>`",
+    "category_id":"`<category_id>`",
+    "user_id":"`<user_id>`"
+}
+```
+Returns status 200 if it's created.
+-  **PATCH /cards/:id** 
+-  **DELETE /cards/:id** 
+
+
+#### Users
+
+-  **GET** 
+
+#### Comments
 
 -  **GET** 
