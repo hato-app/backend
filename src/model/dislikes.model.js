@@ -10,6 +10,9 @@ const dislikesModel = {
   create: async (dislikes) => {
     return knex("cards_dislikes").insert(dislikes).returning("*");
   },
+  destroyByUserId: async (id) => {
+    return knex("cards_dislikes").del().where({ user_id: id });
+  },
   destroyByCardId: async (id) => {
     return knex("cards_dislikes").del().where({ card_id: id });
   },

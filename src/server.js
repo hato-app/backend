@@ -34,9 +34,9 @@ app.delete("/sessions", sessionsController.destroy);
 
 app.get("/cards", cardsController.index);
 app.get("/cards/random", cardsController.showRandom);
-app.get("/cards/random/category/:id", cardsController.showRandomByCategory);
+app.get("/cards/random/categories/:id", cardsController.showRandomByCategory);
 app.get("/cards/:id", cardsController.show);
-app.get("/cards/category/:id", cardsController.showByCategory);
+app.get("/cards/categories/:id", cardsController.showByCategory);
 app.post("/cards", cardsController.create);
 app.patch("/cards/:id", cardsController.update);
 app.delete("/cards/:id", cardsController.destroy);
@@ -56,11 +56,15 @@ app.delete("/comments/:id", commentsController.destroy);
 app.get("/likes", likesController.index);
 app.get("/likes/cards/:id", likesController.showByCardId);
 app.post("/likes", likesController.create);
+// TODO add to README.md
+app.delete("/likes/users/:id", likesController.destroyByUserId);
 app.delete("/likes/cards/:id", likesController.destroyByCardId);
 
 app.get("/dislikes", dislikesController.index);
 app.get("/dislikes/cards/:id", dislikesController.showByCardId);
-app.post("/dislikes", dislikesController.create);
+app.post("/dislikes/users/:id", dislikesController.create);
+// TODO add to README.md
+app.delete("/dislikes/users/:id", dislikesController.destroyByUserId);
 app.delete("/dislikes/cards/:id", dislikesController.destroyByCardId);
 
 app.listen(process.env.PORT, () =>
