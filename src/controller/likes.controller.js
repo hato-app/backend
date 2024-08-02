@@ -6,7 +6,7 @@ const likesController = {
     res.status(200);
     res.json(results);
   },
-    showByCardId: async (req, res) => {
+  showByCardId: async (req, res) => {
     const id = Number(req.params.id);
     const results = await likesModel.selectByCardId(id);
     res.status(200);
@@ -16,8 +16,14 @@ const likesController = {
     const likes = {
       user_id: req.body.user_id,
       card_id: req.body.card_id,
-    }; 
+    };
     const results = await likesModel.create(likes);
+    res.status(200);
+    res.json(results);
+  },
+  destroyByUserId: async (req, res) => {
+    const id = Number(req.params.id);
+    const results = await likesModel.destroyByCardId(id);
     res.status(200);
     res.json(results);
   },
@@ -26,7 +32,7 @@ const likesController = {
     const results = await likesModel.destroyByCardId(id);
     res.status(200);
     res.json(results);
-  }
+  },
 };
 
 module.exports = likesController;
