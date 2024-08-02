@@ -1,47 +1,65 @@
-# backend
+# Hato backend
 
 ## Table of Contents
 
 - [About](#about)
 - [Getting Started](#getting_started)
 - [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
 
 ## About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+
 
 ## Getting Started <a name = "getting_started"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+Intall [Git](https://git-scm.com) and clone this repository.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
+You need to install [Node.js](https://nodejs.org/en) and [PostgreSQL](https://www.postgresql.org)
 
 ```
-Give examples
+node js
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running.
+You need to install your server.
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+The step will be
 
 ```
-until finished
+npm install
+```
+Create .env.local file in your root
+In you .env.local file, it should include
+
+```
+PORT = `<port_number>`
+DB_USER=`<your_user_name>`
+DB_PASSWORD=`<your_password>`
+DB_NAME=`<your_database_name>`
 ```
 
-End with an example of getting some data out of the system or using it for a little demo.
+And run your server.
 
-Please replace anyting inside `<>` with your actual information.
+```
+npm run express-dev
+```
+
+For the database,
+first, set up your database.
+```
+CREATE DATABASE `<your_database_name>`
+```
+
+and run migration and seed.
+```
+npm run migrate-latest
+```
+```
+npm run seed-data
+```
 
 
 ## Usage <a name = "usage"></a>
@@ -53,6 +71,7 @@ Please replace anyting inside `<>` with your actual information.
 - **GET /sessions** - Returns status 200 if the user is logged in 401 if not.
 
 - **POST /sessions** - Requires a JSON:
+Please replace anyting inside `<>` with your actual information.
 ```
 {
   "username": "`<username>`",
