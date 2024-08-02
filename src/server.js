@@ -28,7 +28,11 @@ app.get("/", (req, res) => {
   res.json("はと Api");
 });
 
+//TODO update the README.md file
+
+// This route is returning the user
 app.get("/sessions", sessionsController.index);
+// This route is creating a session with the id of the user
 app.post("/sessions", sessionsController.create);
 app.delete("/sessions", sessionsController.destroy);
 
