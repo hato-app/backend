@@ -17,9 +17,15 @@ const cardsController = {
     res.status(200);
     res.json(results);
   },
+  showRandomByCategory: async (req, res) => {
+    const id = Number(req.params.id);
+    const results = await cardsModel.selectRandomCategoryId(id);
+    res.status(200);
+    res.json(results);
+  },
   showByCategory: async (req, res) => {
     const id = Number(req.params.id);
-    const results = await cardsModel.selectCategory(id);
+    const results = await cardsModel.selectCategoryId(id);
     res.status(200);
     res.json(results);
   },
