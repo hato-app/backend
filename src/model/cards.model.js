@@ -21,7 +21,7 @@ const cardsModel = {
       .limit(1);
   },
   create: async (card) => {
-    return knex("cards").select("*");
+    return knex("cards").insert(card).returning("*");
   },
   update: async (id, card) => {
     return knex("cards").update(card).where({ id });
