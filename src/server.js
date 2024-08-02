@@ -49,6 +49,8 @@ app.delete("/users/:id", usersController.destroy);
 
 app.get("/comments", commentsController.index);
 app.get("/comments/:id", commentsController.show);
+//TODO put this route on README.md
+app.get("/comments/cards/:id", commentsController.showByCardId);
 app.post("/comments", commentsController.create);
 app.patch("/comments/:id", commentsController.update);
 app.delete("/comments/:id", commentsController.destroy);
@@ -56,14 +58,12 @@ app.delete("/comments/:id", commentsController.destroy);
 app.get("/likes", likesController.index);
 app.get("/likes/cards/:id", likesController.showByCardId);
 app.post("/likes", likesController.create);
-// TODO add to README.md
 app.delete("/likes/users/:id", likesController.destroyByUserId);
 app.delete("/likes/cards/:id", likesController.destroyByCardId);
 
 app.get("/dislikes", dislikesController.index);
 app.get("/dislikes/cards/:id", dislikesController.showByCardId);
 app.post("/dislikes/users/:id", dislikesController.create);
-// TODO add to README.md
 app.delete("/dislikes/users/:id", dislikesController.destroyByUserId);
 app.delete("/dislikes/cards/:id", dislikesController.destroyByCardId);
 

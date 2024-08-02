@@ -1,4 +1,5 @@
 const commentsModel = require("../model/comments.model");
+const { showByCardId } = require("./likes.controller");
 
 const commentsController = {
   index: async (req, res) => {
@@ -9,6 +10,12 @@ const commentsController = {
   show: async (req, res) => {
     const id = Number(req.params.id);
     const results = await commentsModel.selectId(id);
+    res.status(200);
+    res.json(results);
+  },
+  showByCardId: async (req, res) => {
+    const id = Number(req.params.id);
+    const results = await commentsModel.selectByCardId(id);
     res.status(200);
     res.json(results);
   },
