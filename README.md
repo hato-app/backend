@@ -90,6 +90,7 @@ Returns status 200 if correct and 401 if its not.
 - **GET /cards** - Shows all cards and returns status 200.
 - **GET /cards/random** - Shows one random card and returns 200.
 - **GET /cards/random/categories/:id** - Shows one random card from the selected category and returns 200.
+- **GET /cards/users/:id** - Shows all careds by a user id and returns 200.
 - **GET /cards/:id** - Shows a card by the id and returns 200.
 - **GET /cards/categories/:id** - Shows all card by the category id and returns 200.
 - **POST /cards** - Adds a card. Requires a Json:

@@ -29,6 +29,12 @@ const cardsController = {
     res.status(200);
     res.json(results);
   },
+  showByUserId: async (req, res) => {
+    const id = Number(req.params.id);
+    const results = await cardsModel.selectByUserId(id);
+    res.status(200);
+    res.json(results);
+  },
   create: async (req, res) => {
     const card = {
       front_text: req.body.front_text,
