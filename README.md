@@ -150,7 +150,7 @@ Returns status 200 if it's updated.
 #### Comments
 
 - **GET /comments** - Shows all comment and returns status 200.
-- **GET /comments/:id** - Shows a commnet by the comment id and returns 200.
+- **GET /comments/:id** - Shows a comment by the comment id and returns 200.
 - **POST /comments** - Adds a comment. Requires a Json:
 
 ```
