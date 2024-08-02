@@ -22,6 +22,7 @@ const commentsController = {
   create: async (req, res) => {
     const id = Number(req.params.id);
     const comment = {
+      card_id: id,
       text: req.body.text,
       created_at: new Date().toISOString(),
     };
