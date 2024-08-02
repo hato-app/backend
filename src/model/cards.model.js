@@ -4,11 +4,14 @@ const cardsModel = {
   select: async () => {
     return knex("cards").select("*");
   },
-  selectId: async (id) => {
-    return knex("cards").select("*").where({ id }).first();
-  },
   selectCategoryId: (id) => {
     return knex("cards").select("*").where({ category_id: id });
+  },
+  selectByUserId: (id) => {
+    return knex("cards").select("*").where({ user_id: id });
+  },
+  selectId: async (id) => {
+    return knex("cards").select("*").where({ id }).first();
   },
   selectRandom: async () => {
     return knex("cards").select("*").orderByRaw("RANDOM()").limit(1);
