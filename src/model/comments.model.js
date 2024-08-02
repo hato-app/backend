@@ -15,7 +15,7 @@ const commentsModel = {
   },
 
   destroy: async (id) => {
-    return knex("comments").del().where({ id } );
+    return knex("comments").del().where({ id });
   },
 };
 module.exports = commentsModel;
