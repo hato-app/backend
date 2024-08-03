@@ -63,7 +63,7 @@ app.delete("/users/:id", usersController.destroy);
 
 //TODO put and check this route on README.md
 app.get("/comments", commentsController.index);
-app.get("/comments/users/:id", commentsController.show);
+app.get("/comments/users/:id", commentsController.showByUserId);
 app.get("/comments/:id", commentsController.show);
 app.get("/comments/cards/:id", commentsController.showByCardId);
 app.post("/comments/", commentsController.create);
