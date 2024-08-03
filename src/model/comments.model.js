@@ -8,6 +8,9 @@ const commentsModel = {
   selectId: async (id) => {
     return knex("comments").select("*").where({ id }).first();
   },
+  selectByUserId: async (id) => {
+    return knex("comments").select("*").where({ user_id: id});
+  },
   selectByCardId: async (id) => {
     return knex("comments").select("*").where({ card_id: id });
   },

@@ -61,9 +61,10 @@ app.post("/users", usersController.create);
 app.patch("/users/:id", usersController.update);
 app.delete("/users/:id", usersController.destroy);
 
+//TODO put and check this route on README.md
 app.get("/comments", commentsController.index);
+app.get("/comments/users/:id", commentsController.show);
 app.get("/comments/:id", commentsController.show);
-//TODO put this route on README.md
 app.get("/comments/cards/:id", commentsController.showByCardId);
 app.post("/comments/", commentsController.create);
 app.patch("/comments/:id", commentsController.update);
