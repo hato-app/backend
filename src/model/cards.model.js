@@ -14,7 +14,7 @@ const cardsModel = {
     return knex("cards").select("*").where({ id }).first();
   },
   selectRandom: async () => {
-    return knex("cards").select("*").orderByRaw("RANDOM()").limit(1);
+    return knex("cards").select("*").orderByRaw("RANDOM()").limit(1).first();
   },
   selectRandomCategoryId: async (id) => {
     return knex("cards")

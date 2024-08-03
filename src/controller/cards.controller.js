@@ -48,12 +48,8 @@ const cardsController = {
   },
   update: async (req, res) => {
     const id = Number(req.params.id);
-    const card = {
-      front_text: req.body.front_text,
-      back_text: req.body.back_text,
-      category_id: req.body.category_id,
-      updated_at: new Date().toISOString(),
-    };
+    const card = req.body.card;
+    card.updated_at = new Date().toISOString();
     const results = await cardsModel.update(id, card);
     res.status(200);
     res.json(results);
