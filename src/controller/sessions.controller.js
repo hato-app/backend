@@ -5,9 +5,10 @@ const sessionsController = {
     if (req.session.user) {
       res.status(200);
       res.json(req.session.user);
+    } else {
+      res.status(401);
+      res.json();
     }
-    res.status(401);
-    res.json();
   },
   create: async (req, res) => {
     const user = {

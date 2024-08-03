@@ -17,11 +17,19 @@ app.use(
     secret: "Riven is the best!",
     resave: false,
     saveUninitialized: false,
+    cookie: {
+      expires: 600000, //60000: 1 minute
+    },
   })
 );
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN,
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => {
   res.status(200);
@@ -37,6 +45,7 @@ app.post("/sessions", sessionsController.create);
 app.delete("/sessions", sessionsController.destroy);
 
 app.get("/cards", cardsController.index);
+// TODO This route now returns one card (not an array)
 app.get("/cards/random", cardsController.showRandom);
 app.get("/cards/random/categories/:id", cardsController.showRandomByCategory);
 app.get("/cards/users/:id", cardsController.showByUserId);
@@ -68,7 +77,7 @@ app.delete("/likes/cards/:id", likesController.destroyByCardId);
 
 app.get("/dislikes", dislikesController.index);
 app.get("/dislikes/cards/:id", dislikesController.showByCardId);
-app.post("/dislikes/users/:id", dislikesController.create);
+app.post("/dislikes", dislikesController.create);
 app.delete("/dislikes/users/:id", dislikesController.destroyByUserId);
 app.delete("/dislikes/cards/:id", dislikesController.destroyByCardId);
 
