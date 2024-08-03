@@ -27,6 +27,7 @@ const commentsController = {
   },
   create: async (req, res) => {
     const comment = {
+      user_id: req.body.user_id,
       card_id: req.body.card_id,
       text: req.body.text,
       created_at: new Date().toISOString(),

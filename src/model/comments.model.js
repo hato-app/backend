@@ -9,10 +9,16 @@ const commentsModel = {
     return knex("comments").select("*").where({ id }).first();
   },
   selectByUserId: async (id) => {
-    return knex("comments").select("*").where({ user_id: id});
+    return knex("comments")
+      .select("*")
+      .where({ user_id: id })
+      .orderBy("created_at", "desc");
   },
   selectByCardId: async (id) => {
-    return knex("comments").select("*").where({ card_id: id });
+    return knex("comments")
+      .select("*")
+      .where({ card_id: id })
+      .orderBy("created_at", "desc");
   },
   create: async (comment) => {
     return knex("comments").insert(comment).returning("*");
