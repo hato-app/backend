@@ -8,7 +8,11 @@ const dislikesModel = {
     return knex("cards_dislikes").select("*").where({ card_id: id });
   },
   create: async (dislikes) => {
-    return knex("cards_dislikes").insert(dislikes).returning("*");
+    return knex("cards_dislikes")
+      .insert(dislikes)
+      .returning("*")
+      .onConflict()
+      .ignore();
   },
   destroyByUserId: async (id) => {
     return knex("cards_dislikes").del().where({ user_id: id });
