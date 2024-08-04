@@ -21,7 +21,8 @@ const cardsModel = {
       .select("*")
       .orderByRaw("RANDOM()")
       .where({ category_id: id })
-      .limit(1);
+      .limit(1)
+      .first();
   },
   create: async (card) => {
     return knex("cards").insert(card).returning("*");
