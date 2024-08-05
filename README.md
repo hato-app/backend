@@ -38,6 +38,7 @@ PORT = `<port_number>`
 DB_USER=`<your_user_name>`
 DB_PASSWORD=`<your_password>`
 DB_NAME=`<your_database_name>`
+CORS_ORIGIN = `<your_frontend_url>`
 ```
 
 And run your server.
