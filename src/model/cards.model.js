@@ -33,5 +33,8 @@ const cardsModel = {
   destroy: async (id) => {
     return knex("cards").del().where({ id });
   },
+  selectReportedCards: async () => {
+    return knex("cards").select("*").where({ flag_report: true });
+  },
 };
 module.exports = cardsModel;

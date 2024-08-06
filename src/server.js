@@ -50,6 +50,7 @@ app.get("/cards/random", cardsController.showRandom);
 app.get("/cards/random/categories/:id", cardsController.showRandomByCategory);
 app.get("/cards/users/:id", cardsController.showByUserId);
 app.get("/cards/categories/:id", cardsController.showByCategory);
+app.get("/cards/reported", cardsController.showByReported);
 app.get("/cards/:id", cardsController.show);
 app.post("/cards", cardsController.create);
 app.patch("/cards/:id", cardsController.update);
