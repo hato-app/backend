@@ -7,11 +7,13 @@ exports.up = function (knex) {
     knex.schema.createTable("cards_report", function (table) {
       table.integer("card_id").notNullable();
       table.integer("user_id").notNullable();
+      table.unique(["user_id", "card_id"]);
     }),
-
+    
     knex.schema.createTable("comments_report", function (table) {
       table.integer("comment_id").notNullable();
       table.integer("user_id").notNullable();
+      table.unique(["comment_id", "user_id"]);
     }),
 
     knex.schema.alterTable("cards", function (table) {
@@ -28,4 +30,9 @@ exports.up = function (knex) {
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.down = function (knex) {};
+exports.down = function (knex) {
+  return Promise.all([
+    knex.schema.dropTable("cards_report"),
+    knex.schema.dropTable("comments_report"),
+  ])
+};
