@@ -86,6 +86,8 @@ app.delete("/dislikes/cards/:id", dislikesController.destroyByCardId);
 
 // Card Report Endpoints
 app.post("/cards-reports/:cardid/:userid", cardReportsController.reportByCardId);
+// Comment Report Endpoints
+// app.post("/comments-report/:commentid/:userid",)
 
 app.listen(process.env.PORT, () =>
   console.log(`Server is running on port: ${process.env.PORT}`)
