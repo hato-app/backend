@@ -68,6 +68,7 @@ app.get("/comments", commentsController.index);
 app.get("/comments/users/:id", commentsController.showByUserId);
 app.get("/comments/:id", commentsController.show);
 app.get("/comments/cards/:id", commentsController.showByCardId);
+// app.get("/comments/reported", commentsController.showByReported);
 app.post("/comments/", commentsController.create);
 app.patch("/comments/:id", commentsController.update);
 app.delete("/comments/:id", commentsController.destroy);
@@ -86,6 +87,7 @@ app.delete("/dislikes/cards/:id", dislikesController.destroyByCardId);
 
 // Card Report Endpoints
 app.post("/cards-reports/:cardid/:userid", cardReportsController.reportByCardId);
+app.get("/cards-reports/all", cardReportsController.showAllReport);
 
 app.listen(process.env.PORT, () =>
   console.log(`Server is running on port: ${process.env.PORT}`)
