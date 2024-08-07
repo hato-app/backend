@@ -4,6 +4,8 @@ const commentsController = require("./controller/comments.controller");
 const sessionsController = require("./controller/sessions.controller");
 const likesController = require("./controller/likes.controller");
 const dislikesController = require("./controller/dislikes.controller");
+const cardReportsController = require("./controller/cardReports.controller");
+const commentReportsController = require("./controller/commentReports.controller");
 
 const session = require("express-session");
 const express = require("express");
@@ -50,6 +52,7 @@ app.get("/cards/random", cardsController.showRandom);
 app.get("/cards/random/categories/:id", cardsController.showRandomByCategory);
 app.get("/cards/users/:id", cardsController.showByUserId);
 app.get("/cards/categories/:id", cardsController.showByCategory);
+app.get("/cards/reported", cardsController.showByReported);
 app.get("/cards/:id", cardsController.show);
 app.post("/cards", cardsController.create);
 app.patch("/cards/:id", cardsController.update);
@@ -81,6 +84,11 @@ app.get("/dislikes/cards/:id", dislikesController.showByCardId);
 app.post("/dislikes", dislikesController.create);
 app.delete("/dislikes/users/:id", dislikesController.destroyByUserId);
 app.delete("/dislikes/cards/:id", dislikesController.destroyByCardId);
+
+// Card Report Endpoints
+app.post("/cards-reports/:cardid/:userid", cardReportsController.reportByCardId);
+// Comment Report Endpoints
+app.post("/comments-report/:commentid/:userid", commentReportsController.reportByCommentId);
 
 app.listen(process.env.PORT, () =>
   console.log(`Server is running on port: ${process.env.PORT}`)

@@ -15,4 +15,6 @@ exports.seed = async function (knex) {
   await knex("cards").del();
   await knex("users").del();
   await knex("category").del();
+  await knex("cards_report").del();
+  await knex("comments_report").del();
 };
