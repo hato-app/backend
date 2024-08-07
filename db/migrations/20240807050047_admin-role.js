@@ -13,5 +13,7 @@ exports.up = function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = function (knex) {
-  return knex("users").table.dropColumn("is_admin");
+  return knex.schema.table("users", (table) => {
+    table.dropColumn("is_admin");
+  });
 };
