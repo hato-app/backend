@@ -60,11 +60,6 @@ const cardsController = {
     res.status(200);
     res.json(results);
   },
-  showByReported: async (req, res) => {
-    const result = await cardsModel.selectReportedCards();
-    res.status(200);
-    res.json(result);
-  },
 };
 
 module.exports = cardsController;
