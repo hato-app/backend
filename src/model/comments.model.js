@@ -29,5 +29,8 @@ const commentsModel = {
   destroy: async (id) => {
     return knex("comments").del().where({ id });
   },
+  // selectReportedComments: async () => {
+  //   return knex("")
+  // },
 };
 module.exports = commentsModel;

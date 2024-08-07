@@ -52,6 +52,11 @@ const commentsController = {
     res.status(200);
     res.json(results);
   },
+  // showByReported: async (req, res) => {
+  //   const result = await commentsModel.selectReportedComments();
+  //   res.status(200);
+  //   res.json(result);
+  // },
 };
 
 module.exports = commentsController;
