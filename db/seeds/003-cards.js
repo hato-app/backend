@@ -86,7 +86,7 @@ exports.seed = async function (knex) {
       flag_report:false,
     },
     {
-      user_id: 11,
+      user_id: 5,
       category_id: "1",
       front_text: "What is forecast?",
       back_text: "It's Condition",
@@ -94,7 +94,7 @@ exports.seed = async function (knex) {
       flag_report:false,
     },
     {
-      user_id: 12,
+      user_id: 3,
       category_id: "1",
       front_text: "Life is too short for?",
       back_text: "Browse without dark mode!",
@@ -102,7 +102,7 @@ exports.seed = async function (knex) {
       flag_report:false,
     },
     {
-      user_id: 13,
+      user_id: 4,
       category_id: "1",
       front_text: "What is in the back?",
       back_text: "Maybe a test",
@@ -110,7 +110,7 @@ exports.seed = async function (knex) {
       flag_report:false,
     },
     {
-      user_id: 14,
+      user_id: 6,
       category_id: "1",
       front_text: "Who is Brandon?",
       back_text: "Spencer",
@@ -118,7 +118,7 @@ exports.seed = async function (knex) {
       flag_report:false,
     },
     {
-      user_id: 15,
+      user_id: 2,
       category_id: "1",
       front_text: "Why was the JavaScript developer sad?",
       back_text: "Because they didn't Node how to Express himself",
@@ -126,7 +126,7 @@ exports.seed = async function (knex) {
       flag_report:false,
     },
     {
-      user_id: 16,
+      user_id: 8,
       category_id: "1",
       front_text: "Why did the React class component feel relieved?",
       back_text: "Because it was now off the hook.",
@@ -134,7 +134,7 @@ exports.seed = async function (knex) {
       flag_report:false,
     },
     {
-      user_id: 17,
+      user_id: 9,
       category_id: "1",
       front_text: "Don't trust JavaScript programmers.",
       back_text: "All they do is promises but they never callback.",
@@ -142,7 +142,7 @@ exports.seed = async function (knex) {
       flag_report:false,
     },
     {
-      user_id: 18,
+      user_id: 7,
       category_id: "1",
       front_text: "You want to hear a javascript joke?",
       back_text: "I'll callback later",
@@ -150,7 +150,7 @@ exports.seed = async function (knex) {
       flag_report:false,
     },
     {
-      user_id: 19,
+      user_id: 5,
       category_id: "1",
       front_text: "Why you should date a javascript developer?",
       back_text: "Because they always callback.",
