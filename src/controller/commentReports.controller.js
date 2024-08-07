@@ -9,4 +9,4 @@ const commentReportsController = {
     }
 }
 
-module.exports = commentReportsController;
+module.exports = reportsController;
