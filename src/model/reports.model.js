@@ -58,12 +58,12 @@ const reportsModel = {
         .where("id", "=", i.comment_id);
     }
 
-    const reported = await knex("comments")
-      .leftJoin("cards", "comments.card_id", "cards.id")
+    const reported = await knex("cards")
+      .leftJoin("comments", "comments.card_id", "cards.id")
       .where("cards.flag_report", "=", true)
       .orWhere("comments.flag_report", "=", true)
       .select(
-        "card_id",
+        "cards.id as card_id",
         "front_text",
         "back_text",
         "cards.flag_report as flag_card",
