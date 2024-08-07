@@ -29,8 +29,6 @@ const reportsModel = {
       .select("card_id")
       .count("card_id")
       .groupBy("card_id");
-    //result example : [ { card_id: 2, count: '1' }, { card_id: 1, count: '6' } ]
-    console.log(countReportedCards);
     const shouldBeLabeledCards = [];
     for (const i of countReportedCards) {
       if (i.count >= limitForCards) {
@@ -39,7 +37,6 @@ const reportsModel = {
     }
 
     for (const i of shouldBeLabeledCards) {
-      console.log(i);
       await knex("cards")
         .update({ flag_report: true })
         .where("id", "=", i.card_id);
@@ -49,8 +46,6 @@ const reportsModel = {
       .select("comment_id")
       .count("comment_id")
       .groupBy("comment_id");
-    //result example : [ { comment_id: 2, count: '1' }, { comment_id: 1, count: '6' } ]
-    console.log(countReportedComments);
     const shouldBeLabeledComments = [];
     for (const i of countReportedComments) {
       if (i.count >= limitForComments) {
@@ -58,7 +53,6 @@ const reportsModel = {
       }
     }
     for (const i of shouldBeLabeledComments) {
-      console.log(i);
       await knex("comments")
         .update({ flag_report: true })
         .where("id", "=", i.comment_id);
@@ -78,27 +72,6 @@ const reportsModel = {
         "comments.flag_report as flag_comment"
       )
       .orderBy("card_id");
-    console.log(reported);
-    //result example
-    // [
-    //   {
-    //     card_id: 1,
-    //     front_text: 'What do you call a pony with a cough?',
-    //     back_text: 'A little horse',
-    //     flag_card: true,
-    //     comment_id: 2,
-    //     comment_text: 'no, this is great!',
-    //     flag_comment: false
-    //   },
-    //   {
-    //     card_id: 1,
-    //     front_text: 'What do you call a pony with a cough?',
-    //     back_text: 'A little horse',
-    //     flag_card: true,
-    //     comment_id: 4,
-    //     comment_text: 'nah, this is so bad...',
-    //     flag_comment: false
-    //   },
     const result = [];
     const cardIds = [];
     for (const i of reported) {
