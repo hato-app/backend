@@ -14,7 +14,7 @@ const reportsController = {
     res.status(200).send("Report submitted, thank you.");
   },
   showAllReport: async (req, res) => {
-    const result = await cardReportsModel.selectAllReported();
+    const result = await reportsModel.selectAllReported();
     res.status(200).json(result);
   },
 };

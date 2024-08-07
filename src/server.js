@@ -51,7 +51,6 @@ app.get("/cards/random", cardsController.showRandom);
 app.get("/cards/random/categories/:id", cardsController.showRandomByCategory);
 app.get("/cards/users/:id", cardsController.showByUserId);
 app.get("/cards/categories/:id", cardsController.showByCategory);
-app.get("/cards/reported", cardsController.showByReported);
 app.get("/cards/:id", cardsController.show);
 app.post("/cards", cardsController.create);
 app.patch("/cards/:id", cardsController.update);
@@ -85,8 +84,8 @@ app.delete("/dislikes/users/:id", dislikesController.destroyByUserId);
 app.delete("/dislikes/cards/:id", dislikesController.destroyByCardId);
 
 // Card Report Endpoints
-app.get("/cards-reports/all", cardReportsController.showAllReport);
-app.post("/cards-reports/:cardid/:userid", cardReportsController.reportByCardId);
+app.get("/cards-reports/all", reportsController.showAllReport);
+app.post("/cards-reports/:cardid/:userid", reportsController.reportByCardId);
 app.post("/comments-report/:commentid/:userid", reportsController.reportByCommentId);
 
 app.listen(process.env.PORT, () =>
