@@ -24,6 +24,7 @@ exports.seed = async function(knex) {
     {
       username: "filipo" ,
       password: "itsaship" ,
+      is_admin: true ,
     },
     {
       username: "supercar88" ,
