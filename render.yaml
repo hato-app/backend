@@ -28,12 +28,6 @@ services:
     envVars:
       - key: PORT
         sync: false
-      - key: DB_USER
-        sync: false
-      - key: DB_PASSWORD
-        sync: false
-      - key: DB_NAME
-        sync: false
       - key: DB_URL
         sync: false
       - key: CORS_ORIGIN
