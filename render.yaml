@@ -1,0 +1,38 @@
+databases:
+  - name: hato_db
+    databaseName: hato_db
+    user: hato_user
+    plan: free
+    region: singapore
+    ipAllowList:
+    - source: 0.0.0.0/0
+      description: everywhere
+    postgresMajorVersion: "14"
+services:
+  - type: web
+    name: hato-legacy-frontend
+    runtime: node
+    repo: https://github.com/hato-cc-legacy/front-end
+    plan: free
+    envVars:
+      - key: VITE_SERVER
+        sync: false
+    region: singapore
+    buildCommand: npm run build
+    startCommand: npm run preview
+  - type: web
+    name: hato-legacy-backend
+    runtime: node
+    repo: https://github.com/hato-cc-legacy/backend
+    plan: free
+    envVars:
+      - key: PORT
+        sync: false
+      - key: DB_URL
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
+    region: singapore
+    buildCommand: npm run build
+    startCommand: npm run start
+version: "1"
